@@ -1,3 +1,5 @@
+import { todos, RENDER_EVENT } from './Todo.mjs';
+
 function makeTodo (todoObject) {
     const textTitle = document.createElement('h2');
     textTitle.innerText = todoObject.title;
@@ -43,5 +45,25 @@ function makeTodo (todoObject) {
 
     return container;
 }
+
+
+function addTaskToCompleted (todoID) {
+    const todoTarget = findTodo(todoID);
+
+    if (todoTarget == null) return;
+
+    todoTarget.isCompleted = true;
+    document.dispatchEvent(new Event(RENDER_EVENT));
+}
+
+function findTodo (todoId) {
+    for (const todoItem of todos) {
+        if (todoItem.id === todoId) {
+            return todoItem;
+        }
+    }
+    return null;
+}
+
 
 export default makeTodo;
