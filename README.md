@@ -8,7 +8,7 @@ This is a simple Todo List project built using **JavaScript**, as part of my lea
 - Add new tasks
 - Mark tasks as completed
 - Delete tasks
-- Persistent using localStorage (jika ada)
+- Persistent using localStorage
 
 ## 📚 Learning Resource
 Made as part of:
