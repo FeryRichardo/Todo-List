@@ -1,5 +1,6 @@
 import { generateId, generateTodoObject } from "./Generated.mjs";
 import { todos, RENDER_EVENT } from './Todo.mjs';
+import { saveData } from "./save.mjs";
 
 function addTodo () {
     const textTodo = document.getElementById('title').value;
@@ -10,6 +11,7 @@ function addTodo () {
     todos.push(todoObject);
 
     document.dispatchEvent(new Event(RENDER_EVENT));
+    saveData();
 }
 
 export default addTodo;

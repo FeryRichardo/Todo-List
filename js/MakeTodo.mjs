@@ -1,4 +1,7 @@
 import { todos, RENDER_EVENT } from './Todo.mjs';
+import undoTaskFromCompleted from './UndoTask.mjs';
+import removeTaskFromCompleted from './RemoveTask.mjs';
+import { saveData } from './save.mjs';
 
 function makeTodo (todoObject) {
     const textTitle = document.createElement('h2');
@@ -54,6 +57,7 @@ function addTaskToCompleted (todoID) {
 
     todoTarget.isCompleted = true;
     document.dispatchEvent(new Event(RENDER_EVENT));
+    saveData();
 }
 
 function findTodo (todoId) {
@@ -66,4 +70,4 @@ function findTodo (todoId) {
 }
 
 
-export default makeTodo;
+export { makeTodo, addTaskToCompleted, findTodo };
